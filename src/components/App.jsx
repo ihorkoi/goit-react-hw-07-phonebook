@@ -30,19 +30,15 @@ export const App = () => {
     >
       <h1>Phonebook</h1>
       <ContactForm />
-
-      {contacts.length === 0 ? (
+      {isLoading && !error ? (
+        <b>Request in progress...</b>
+      ) : contacts.length === 0 ? (
         <p>You don`t have any contact yet</p>
       ) : (
         <>
           <h2>Contacts</h2>
-
           <Filter></Filter>
-          {isLoading && !error ? (
-            <b>Request in progress...</b>
-          ) : (
-            <ContactsList />
-          )}
+          <ContactsList />
         </>
       )}
     </div>
