@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Form, Input, Button } from './ContactForm.styled';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
+import { nanoid } from '@reduxjs/toolkit';
 
 export const ContactForm = () => {
   const contacts = useSelector(getContacts);
@@ -14,7 +15,8 @@ export const ContactForm = () => {
 
     const newContact = {
       name: name.value,
-      number: number.value,
+      phone: number.value,
+      id: nanoid(),
     };
     const alreadyIn = contacts.find(
       ({ name }) => name.toLowerCase() === newContact.name.toLowerCase()
