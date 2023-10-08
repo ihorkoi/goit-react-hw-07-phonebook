@@ -9,14 +9,9 @@ export const ContactsList = () => {
   const filter = useSelector(getFilterValue);
   const dispatch = useDispatch();
 
-  const [filteredContacts, setFilteredContacts] = useState(contacts);
-  useEffect(() => {
-    setFilteredContacts(
-      contacts.filter(({ name }) =>
-        name.toLowerCase().includes(filter.toLowerCase())
-      )
-    );
-  }, [contacts, filter]);
+  const filteredContacts = contacts.filter(({ name }) =>
+    name.toLowerCase().includes(filter.toLowerCase())
+  );
 
   return (
     <div>
