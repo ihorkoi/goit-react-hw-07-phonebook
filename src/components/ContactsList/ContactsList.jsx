@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { ListItem, Button, Number } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/operations';
