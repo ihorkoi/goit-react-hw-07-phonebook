@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Form, Input, Button } from './ContactForm.styled';
 import { addContact } from 'redux/operations';
 import { selectContacts } from 'redux/selectors';
-import { nanoid } from '@reduxjs/toolkit';
 
 export const ContactForm = () => {
   const contacts = useSelector(selectContacts);
@@ -10,13 +9,13 @@ export const ContactForm = () => {
 
   const handleContact = evt => {
     evt.preventDefault();
-    const form = evt.currentTarselect;
+    const form = evt.currentTarget;
+
     const { name, number } = form.elements;
 
     const newContact = {
       name: name.value,
       phone: number.value,
-      id: nanoid(),
     };
     const alreadyIn = contacts.find(
       ({ name }) => name.toLowerCase() === newContact.name.toLowerCase()
